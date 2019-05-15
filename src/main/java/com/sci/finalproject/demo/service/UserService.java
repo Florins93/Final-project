@@ -1,24 +1,11 @@
 package com.sci.finalproject.demo.service;
 
 import com.sci.finalproject.demo.model.User;
-import com.sci.finalproject.demo.model.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
-    @Autowired
-    UserRepository userRepo;
+public interface UserService {
+    void save(User user);
 
-//   public Iterable<User> getAllUsers(){
-//        return userRepo.findAll();
-//    }
+    User findByUsername(String username);
 
-    public User saveUser(User u){
-        return userRepo.save(u);
-    }
 
-    public void removeUserById(Integer id){
-        userRepo.deleteById(id);
-    }
 }

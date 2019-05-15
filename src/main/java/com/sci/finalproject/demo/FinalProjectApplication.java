@@ -1,4 +1,4 @@
-package com.sci.finalproject.demo.validator;
+package com.sci.finalproject.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

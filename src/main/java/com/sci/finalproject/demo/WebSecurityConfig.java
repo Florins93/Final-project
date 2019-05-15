@@ -1,4 +1,4 @@
-package com.sci.finalproject.demo.validator;
+package com.sci.finalproject.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -26,15 +26,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/login/registration").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers("/static/**", "/proiect/sign-up").permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                    .formLogin()
+                    .loginPage("/")
+                    .permitAll()
+                    .defaultSuccessUrl("/profile",true)
                 .and()
-                .logout()
-                .permitAll();
+                    .logout()
+                    .permitAll();
     }
 
     @Bean

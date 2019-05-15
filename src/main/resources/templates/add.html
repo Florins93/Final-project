@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Add a trip</title>
+</head>
+<body style="background-image: url('addd.jpg'); min-height: 100%; min-width: 100%;">
+<div class="container">
+
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body" >
+                <form method="post" action=".">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
+
+
+
+                    <div id="trip_location" class="form-group required">
+                        <label for="trip_location" class="control-label col-md-4  requiredField"> Trip Location<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textinput textInput form-control" id="trip_location" maxlength="30" name="trip_location" placeholder="Enter your trip location" style="margin-bottom: 10px" type="text" />
+                        </div>
+                    </div>
+                    <div id="date_from" class="form-group required">
+                        <label for="date_from" class="control-label col-md-4  requiredField">Date From<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md dateinput form-control" id="date_from" name="date_from"  style="margin-bottom: 10px" type="date" />
+                        </div>
+                    </div>
+                    <div id="date_to" class="form-group required">
+                        <label for="date_to" class="control-label col-md-4  requiredField">Date To<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md dateinput form-control" id="date_to" name="date_to" style="margin-bottom: 10px" type="date" />
+                        </div>
+                    </div>
+                    <div id="impression" class="form-group required">
+                        <label for="impression" class="control-label col-md-4  requiredField"> Impression<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <textarea class="input-md textareainput textInput form-control" id="impression" name="impression" placeholder="Write your impression about this vacantion" style="margin-bottom: 10px" type="textarea" rows="5" ></textarea>
+                        </div>
+                    </div>
+
+
+                    <div id="photo1" class="form-group required">
+                        <label for="photo1" class="control-label col-md-4  requiredField"> Photo 1<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md fileinput textInput form-control" id="photo1" name="catagory"  style="margin-bottom: 10px" type="file" />
+                        </div>
+                    </div>
+                    <div id="photo2" class="form-group required">
+                        <label for="photo2" class="control-label col-md-4  requiredField"> Photo 2<span class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md fileinput textInput form-control" id="photo2" name="catagory"  style="margin-bottom: 10px" type="file" />
+                        </div>
+                    </div>
+
+                    <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50px">
+                        <label for="map-container-google-1" class="control-label col-md-4  requiredField">Map Location<span class="asteriskField">*</span> </label>
+                        <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+
+
+
+                </form>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+</body>
+</html>
