@@ -16,35 +16,7 @@
 
     <title>Profile</title>
 </head>
-<body style="background-image: url('sign.jpg'); min-height: 100%; min-width: 100%;background-repeat: no-repeat;">
-
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" th:href="@{/trip}">Trips</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a th:href="@{/profile}">Profile</a></li>
-                <li class="active"><a th:href="@{/proiect}">Login<span class="sr-only">(current)</span></a></li>
-
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-<div class="col-md-2">
-</div>
-
-
-<h2><strong>Sign up</strong></h2>
-
+<body style="background-image: url('https://steemitimages.com/DQmX7AZtnFoxwkMJnNWdVyYECpL2b6qGrBp4mf7x97Y6TqE/Nature-beautiful-Wallpaper-57587401_1.jpg'); min-height: 100%; min-width: 100%; background-repeat: no-repeat">
 
 
 </br></br></br>
@@ -54,63 +26,65 @@
         <table class="table table-striped">
             <tbody>
             <tr>
+
                 <td colspan="1">
-                    <form class="well form-horizontal" method="post" th:action="@{/proiect/sign-up}" >
+                    <form class="well form-horizontal form-signin" th:action="@{/sign-up}" th:object="${user}" method="post">
                         <fieldset>
-                            <div class="form-group">
+                            <h2 style="margin-left:100px; margin-bottom:25px"><strong>Sign up</strong></h2>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">First Name</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="firstname" name="firstname" placeholder="First Name" class="form-control" required="true" value="" type="text" th:field="*{firstname}"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Last Name</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="lastname" name="lastname" placeholder="Last Name" class="form-control" required="true" value="" type="text" th:field="*{lastname}"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Username</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="username" name="username" placeholder="Username" class="form-control" required="true" value="" type="text" th:field="*{username}"></div>
                                     <small class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Password</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="password" name="password" placeholder="Password" class="form-control" required="true" value="" type="password" th:field="*{password}"></div>
                                     <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Password Confirm</label>
                                 <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" class="form-control" required="true" value="" type="passwordConfirm" th:field="*{passwordConfirm}"></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" class="form-control" required="true" value="" type="password" th:field="*{passwordConfirm}"></div>
                                     <small class="text-danger" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></small>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Address Line</label>
                                 <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2" placeholder="Address Line" class="form-control" required="true" value="" type="text" th:field="*{address}"></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="address" name="address" placeholder="Address Line" class="form-control" required="true" value="" type="text" th:field="*{address}"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">City</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text" th:field="*{city}"></div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="col-md-4 control-label">Phone Number</label>
                                 <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text" th:field="*{phone}"></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phone" name="phone" placeholder="Phone Number" class="form-control" required="true" value="" type="text" th:field="*{phone}"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-success" type="submit">Register</button>
+                                <button class="btn btn-success" type="submit" style="margin-left:200px">Register</button>
                             </div>
                         </fieldset>
                     </form>

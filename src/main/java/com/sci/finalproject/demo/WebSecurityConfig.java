@@ -26,12 +26,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/static/**", "/proiect/sign-up").permitAll()
+                    .antMatchers("/static/**", "/sign-up").permitAll()
+
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
                     .loginPage("/")
                     .permitAll()
+                //.usernameParameter("username")
+               // .passwordParameter("password")
                     .defaultSuccessUrl("/profile",true)
                 .and()
                     .logout()

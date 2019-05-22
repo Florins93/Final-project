@@ -1,18 +1,18 @@
 package com.sci.finalproject.demo.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 
 @Entity
 @Table(name="userprofile")
 public class User {
+
+        public User()
+        {
+                role = "user";
+        }
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,15 +29,15 @@ public class User {
         private String passwordConfirm;
 
         @Size(min = 3, max = 30, message = "Minim 3 caractere.")
-        private String firstName;
+        private String firstname;
 
         @Size(min = 3, max = 30, message = "Minim 3 caractere.")
-        private String lastName;
+        private String lastname;
 
 
         private String city;
 
-        private String adress;
+        private String address;
 
         private String phone;
 
@@ -75,20 +75,20 @@ public class User {
                 this.passwordConfirm = passwordConfirm;
         }
 
-        public String getFirstName() {
-                return firstName;
+        public String getFirstname() {
+                return firstname;
         }
 
-        public void setFirstName(String firstName) {
-                this.firstName = firstName;
+        public void setFirstname(String firstname) {
+                this.firstname = firstname;
         }
 
-        public String getLastName() {
-                return lastName;
+        public String getLastname() {
+                return lastname;
         }
 
-        public void setLastName(String lastName) {
-                this.lastName = lastName;
+        public void setLastname(String lastname) {
+                this.lastname = lastname;
         }
 
         public String getCity() {
@@ -99,12 +99,12 @@ public class User {
                 this.city = city;
         }
 
-        public String getAdress() {
-                return adress;
+        public String getAddress() {
+                return address;
         }
 
-        public void setAdress(String adress) {
-                this.adress = adress;
+        public void setAddress(String address) {
+                this.address = address;
         }
 
         public String getPhone() {
@@ -121,5 +121,19 @@ public class User {
                 this.role = role;
         }
 
-
+        @Override
+        public String toString() {
+                return "User{" +
+                        "id=" + id +
+                        ", username='" + username + '\'' +
+                        ", password='" + password + '\'' +
+                        ", passwordConfirm='" + passwordConfirm + '\'' +
+                        ", firstname='" + firstname + '\'' +
+                        ", lastname='" + lastname + '\'' +
+                        ", city='" + city + '\'' +
+                        ", address='" + address + '\'' +
+                        ", phone='" + phone + '\'' +
+                        ", role='" + role + '\'' +
+                        '}';
+        }
 }

@@ -16,7 +16,7 @@
 
     <title>Add a trip</title>
 </head>
-<body style="background-image: url('addd.jpg'); min-height: 100%; min-width: 100%;">
+<body style="background-image: url('https://www.viewbug.com/media/images/contests/contest8258_banner.jpg'); min-height: 100%; min-width: 100%;">
 <div class="container">
 
     <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -25,54 +25,54 @@
 
             </div>
             <div class="panel-body" >
-                <form method="post" action=".">
+                <form th:object="${location}"  method="post" th:action="@{/location/add}" enctype="multipart/form-data">
                     <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 
 
 
-                    <div id="trip_location" class="form-group required">
-                        <label for="trip_location" class="control-label col-md-4  requiredField"> Trip Location<span class="asteriskField">*</span> </label>
+                    <div class="form-group ">
+                        <label for="locationName" class="control-label col-md-4  requiredField">  Location<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md  textinput textInput form-control" id="trip_location" maxlength="30" name="trip_location" placeholder="Enter your trip location" style="margin-bottom: 10px" type="text" />
+                            <input class="input-md  textinput textInput form-control" id="locationName" maxlength="30" name="locationName" placeholder="Enter your trip location" style="margin-bottom: 10px" type="text" th:field="*{locationName}"/>
                         </div>
                     </div>
-                    <div id="date_from" class="form-group required">
-                        <label for="date_from" class="control-label col-md-4  requiredField">Date From<span class="asteriskField">*</span> </label>
+                    <div  class="form-group ">
+                        <label for="dateFrom" class="control-label col-md-4  requiredField">Date From<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md dateinput form-control" id="date_from" name="date_from"  style="margin-bottom: 10px" type="date" />
+                            <input class="input-md dateinput form-control" id="dateFrom" name="dateFrom"  style="margin-bottom: 10px" type="date"  th:field="*{dateFrom}" />
                         </div>
                     </div>
-                    <div id="date_to" class="form-group required">
-                        <label for="date_to" class="control-label col-md-4  requiredField">Date To<span class="asteriskField">*</span> </label>
+                    <div  class="form-group ">
+                        <label for="dateTo" class="control-label col-md-4  requiredField">Date To<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md dateinput form-control" id="date_to" name="date_to" style="margin-bottom: 10px" type="date" />
+                            <input class="input-md dateinput form-control" id="dateTo" name="dateTo" style="margin-bottom: 10px" type="date"  th:field="*{dateTo}" />
                         </div>
                     </div>
-                    <div id="impression" class="form-group required">
+                    <div  class="form-group ">
                         <label for="impression" class="control-label col-md-4  requiredField"> Impression<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <textarea class="input-md textareainput textInput form-control" id="impression" name="impression" placeholder="Write your impression about this vacantion" style="margin-bottom: 10px" type="textarea" rows="5" ></textarea>
+                            <textarea class="input-md textareainput textInput form-control" id="impression" name="impression" placeholder="Write your impression about this vacantion" style="margin-bottom: 10px" type="textarea" rows="5" th:field="*{impression}"></textarea>
                         </div>
                     </div>
 
 
-                    <div id="photo1" class="form-group required">
+                    <div  class="form-group ">
                         <label for="photo1" class="control-label col-md-4  requiredField"> Photo 1<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md fileinput textInput form-control" id="photo1" name="catagory"  style="margin-bottom: 10px" type="file" />
+                            <input class="input-md fileinput textInput form-control" id="photo1" name="photo1"  style="margin-bottom: 10px" type="file" th:field="*{photo1}"/>
                         </div>
                     </div>
-                    <div id="photo2" class="form-group required">
+                    <div  class="form-group ">
                         <label for="photo2" class="control-label col-md-4  requiredField"> Photo 2<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md fileinput textInput form-control" id="photo2" name="catagory"  style="margin-bottom: 10px" type="file" />
+                            <input class="input-md fileinput textInput form-control" id="photo2" name="photo2"  style="margin-bottom: 10px" type="file" th:field="*{photo2}" />
                         </div>
                     </div>
-
-                    <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50px">
-                        <label for="map-container-google-1" class="control-label col-md-4  requiredField">Map Location<span class="asteriskField">*</span> </label>
-                        <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Add your vacantion</button>
                     </div>
+
+
 
 
 

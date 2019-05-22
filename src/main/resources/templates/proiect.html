@@ -20,39 +20,40 @@
     <title>Log in</title>
 </head>
 
-<body style="background-image: url('../static/images/nature.jpg'); min-height: 100%; min-width: 100%;">
+<body style="background-image: url('https://www.viewbug.com/media/images/contests/contest8377_banner.png'); min-height: 100%; min-width: 100%; background-repeat: no-repeat">
 
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
 <div class="container-fluid" >
 
-
-
-
-
-
-    <form method="post" th:action="@{/poriect}" th:object="${userprofile}" >
+    <form  th:action="@{/}"  method="post" >
         <div class="row">
             <div class="col-md-3">
             </div>
             <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Username"  required>
+                <input type="text" class="form-control" name="username" placeholder="Username"  >
             </div>
             <div class="col-md-3">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" >
             </div>
         </div>
         <div class="row">
             <div class="col-md-3">
             </div>
             <div class="col-md-3">
-                <button class="btn btn-danger" type="submit">Log in</button>
+                <input class="btn btn-danger" type="submit" value="Login"></input>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-primary " type="submit" th:href="@{/proiect/sign-up}">Sign Up</button>
+
+                <a class="btn btn-primary " th:href="@{/sign-up}">Sign Up</a>
+
+
+
             </div>
         </div>
     </form>
+
 
 
 

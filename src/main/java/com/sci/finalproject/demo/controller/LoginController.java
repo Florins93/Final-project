@@ -16,6 +16,9 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
+
+
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -34,6 +37,16 @@ public class LoginController {
         return "proiect";
     }
 
+//    @PostMapping
+//    public String proiect(@Valid User user, BindingResult bindingResult) {
+//        userValidation.validate(user, bindingResult);
+//        if (bindingResult.hasErrors()) {
+//            return "proiect";
+//        }
+//
+//        return"redirect:/profile";
+//    }
+
     @GetMapping("/sign-up")
     public String signUp(Model model) {
         model.addAttribute("user", new User());
@@ -46,9 +59,11 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             return "sign-up";
         }
-        user.setRole("user");
         userService.save(user);
         securityService.autoLogin(user.getUsername(), user.getPasswordConfirm());
         return "redirect:/proiect";
     }
+
+
+
 }
