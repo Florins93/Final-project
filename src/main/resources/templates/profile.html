@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Profile</title>
+</head>
+<body style="background-image: url('https://www.viewbug.com/media/images/contests/contest8100_banner.jpg'); min-height: 100%; min-width: 100%;background-repeat: no-repeat;">
+
+<nav class="navbar navbar-inverse navbar-static-top" >
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/profile}">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"  th:href="@{/location}">Trips</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a  th:href="@{/profile}">Profile</a></li>
+                <li class="active"><a th:href="@{/logout}">Log out<span class="sr-only">(current)</span></a></li>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="col-md-9">
+</div>
+
+</br></br></br>
+<div class="container">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td colspan="1">
+                    <form class="well form-horizontal form-signin" th:object="${profile}"  method="post" th:action="@{/profile}" >
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">First Name</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="firstname"
+                                               name="firstname"
+                                               placeholder="First Name"
+                                               class="form-control"
+                                               required="true"
+                                               type="text"
+                                               th:field="*{firstname}" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Last Name</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="lastname" name="lastname" placeholder="Last Name" class="form-control" required="true" value="" type="text" th:field="*{lastname}" ></div>
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Username</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="username" name="username" placeholder="Username" class="form-control" required="true" value="" type="text" th:field="*{username}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Password</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="password" name="password" placeholder="Password" class="form-control" required="true" value="" type="password" th:field="*{password}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Password Confirm</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" class="form-control" required="true" value="" type="password" th:field="*{passwordConfirm}"></div>
+
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Address Line</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="address" name="address" placeholder="Address Line" class="form-control" required="true" value="" type="text" th:field="*{address}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">City</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text" th:field="*{city}"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <label class="col-md-4 control-label">Phone Number</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phone" name="phone" placeholder="Phone Number" class="form-control" required="true" value="" type="text" th:field="*{phone}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success" type="submit">Edit Profile</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </td>
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
